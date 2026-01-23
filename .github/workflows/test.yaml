@@ -14,8 +14,18 @@ jobs:                          # https://docs.github.com/en/actions/reference/wo
      run: npm ci  # Installs the third-party dependencies
    - name: npm test
      run: npm test
-
-     
-
-     
-     
+ build:
+  runs-on: ubuntu-latest
+  steps:
+   - name: Get code
+     uses: actions/checkout@v3  
+   - name: Install Nodejs
+     uses: actions/setup-node@v3
+     with:
+       node-version: 18
+   - name: Install dependencies
+     run: npm ci  
+   - name: Build project
+     run: npm run build
+   - name: Deploy
+     run: echo "Deploying  ..."
