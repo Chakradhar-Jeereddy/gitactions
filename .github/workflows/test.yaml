@@ -1,0 +1,21 @@
+name: Test Project
+on: push                     # workflow_dispatch, repository_dispatch,schedule, workflow_call
+jobs:                          # https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#repository_dispatch
+ test:
+  runs-on: ubuntu-latest
+  steps:
+   - name: Get code
+     uses: actions/checkout@v3  # Actions- An application that performs a frequently
+   - name: Install Nodejs                    # repeated task. @version is needed to ensure stable version
+     uses: actions/setup-node@v3
+     with:
+       node-version: 18
+   - name: Install dependencies
+     run: npm ci  # Installs the third-party dependencies
+   - name: npm test
+     run: npm test
+
+     
+
+     
+     
