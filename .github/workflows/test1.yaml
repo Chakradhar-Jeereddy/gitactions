@@ -19,6 +19,7 @@ jobs:
           echo "Testing completed"
 
    build: 
+    needs: test
     runs-on: ubuntu-latest
     steps:
     - name: get code
