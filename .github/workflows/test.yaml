@@ -1,5 +1,5 @@
 name: Test Project
-on: push                     # workflow_dispatch, repository_dispatch,schedule, workflow_call
+on: [push,workflow_dispatch]                     # workflow_dispatch, repository_dispatch,schedule, workflow_call
 jobs:                          # https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#repository_dispatch
  test:
   runs-on: ubuntu-latest
