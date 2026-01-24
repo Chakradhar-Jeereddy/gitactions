@@ -1,0 +1,33 @@
+name: my first workflow
+on: [push, workflow_dispatch]
+jobs: 
+   test:
+    runs-on: ubuntu-latest
+    steps:
+     - name: Get code
+       uses: actions/checkout@v3
+     - name: Install dependencies
+       uses: actions/setup-node@v3
+       with:
+         node_version: 18
+         check_latest: false
+     - name: Install Nodejs
+       run: npm ci
+     - name: test Nodejs
+       run: |
+          npm test
+          echo "Testing completed"
+
+   build: 
+    runs-on: ubuntu-latest
+    steps:
+    - name: get code
+      uses: actions/checkout@v3
+    - name: Install dependencies
+      uses: actions/setup-node@v3
+    - name: Install Nodejs
+      run: npm ci
+    - name: Build Nodejs
+      run: |
+        npm run build
+        echo "deploying"
