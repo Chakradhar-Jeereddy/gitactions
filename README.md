@@ -1,6 +1,11 @@
 ![CICD](./image/cicd.png)
 
-Jenkins or github actions
+**Bitbucket and Gitlab supports fast-forward merge. Github supports only three way merge with extra commit.**
+**Fast-forword merge will not change the commit ID**
+**That is the reason, we are running CI pipeline again after Feature brach merged with main**
+**As merge creates a new commit, we don't trush unless the pipleline is successfully with that new commit**
+
+Jenkins vs Github actions
 ==
 - concepts are similar
 1. pipeline/workflow
