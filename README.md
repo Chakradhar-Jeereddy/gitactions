@@ -1,9 +1,20 @@
 ![CICD](./image/cicd.png)
 
-**Bitbucket and Gitlab supports fast-forward merge. Github supports only three way merge with extra commit.**
-**Fast-forword merge will not change the commit ID**
-**That is the reason, we are running CI pipeline again after Feature brach merged with main**
-**As merge creates a new commit, we don't trush unless the pipleline is successfully with that new commit**
+# Git Merge Strategy and CI Pipeline
+
+* **Bitbucket and GitLab support fast-forward merges. GitHub also supports fast-forward merges**, depending on the repository and branch protection configuration.
+* A **fast-forward merge does not create a new commit**, so the commit ID remains unchanged.
+* A **three-way merge creates a new merge commit** with a new commit ID.
+* When a feature branch is merged into `main` using a three-way merge, the resulting merge commit is different from the commit that was previously tested on the feature branch.
+* Therefore, **we run the CI pipeline again after the feature branch is merged into `main`**.
+* This ensures that the **exact commit that will exist on `main` is successfully validated** before we trust the merge.
+
+## Why Run CI Again?
+
+The feature branch may have passed CI successfully, but a three-way merge creates a **new merge commit**. We should not assume that the previously tested commit and the new merge commit are equivalent.
+
+> **Principle:** We trust the code only after CI successfully validates the exact commit that is present on `main`.
+
 
 Jenkins vs Github actions
 ==
