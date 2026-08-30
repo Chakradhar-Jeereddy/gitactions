@@ -1,1 +1,1 @@
-![CICD](./image/cicd.pnp)
+![CICD](./image/cicd.png)
