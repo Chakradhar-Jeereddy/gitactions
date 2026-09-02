@@ -1,4 +1,4 @@
-![CICD](./image/cicd.png)
+![CICD](./image/cicd1.png)
 
 # Git Merge Strategy and CI Pipeline
 
